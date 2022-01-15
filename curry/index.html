@@ -1,0 +1,22 @@
+<script>
+    function curry(fn) {
+        return function curried(...x) {
+            if (x.length >= fn.length) {
+                return fn(...x);
+            } else {
+                return function(...y) {
+                    return curried(...x, ...y);
+                }
+            }
+        }
+    }
+
+
+    const summation = (x,y,z, a, b) => x + y + z + a + b;
+    const curriedSum = curry(summation);
+
+    console.log(curriedSum(2,3,4,5,6,7));
+    console.log(curriedSum(2)(3)(4)(5)(6,7));
+    console.log(curriedSum(2)(3,4)(5)(6,7));
+
+</script>
