@@ -1,0 +1,27 @@
+<script>
+
+    function Person() { //constructor function
+        this.name = "Anil";
+        this.getName = function() {
+            return this.name;
+        }
+    }
+
+    function Employee() { //class
+        this.empno = 1;
+        this.getEmpno = function() {
+            return this.empno;
+        }
+    }
+
+    // Employee.prototype = Person.prototype;
+
+    Employee.prototype = Object.create(Person.prototype);
+    Employee.prototype.constructor = Employee;
+
+    var employee = new Employee();
+    console.log(employee);
+    console.log(employee.getEmpno());
+
+
+</script>

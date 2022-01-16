@@ -1,0 +1,28 @@
+<script>
+    function Employee() {
+        this.access = 'pc,library';
+    };
+
+    function Manager() {
+        this.extraAccess = 'gitlab,jenkins';
+
+        Employee.call(this); //calls parent constructor in child context to get the member of parents in child object
+    }
+
+    console.log(Manager.prototype);//Object
+    
+    Manager.prototype = Object.create(Employee.prototype); //to link with parent
+    Manager.prototype.constructor = Manager; //to be constructor
+
+    const manager = new Manager();
+    console.log(manager.extraAccess);
+    console.log(manager.access);
+
+
+    console.log(manager.__proto__ === Manager.prototype);
+    console.log(Manager === Manager.prototype.constructor);
+    console.log(manager.__proto__.__proto__ === Employee.prototype);
+
+
+</script>
+

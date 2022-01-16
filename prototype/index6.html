@@ -1,0 +1,27 @@
+<script>
+    function Employee() {
+        this.name = "myrnd";
+    };
+
+    console.dir(Employee.prototype); //Object
+    console.dir(Employee.prototype.constructor); //Object
+    console.dir(Employee.prototype.__proto__); //Object
+
+
+    //console.log(Employee.prototype); //constructor f
+
+
+    //Employee.prototype.company = "MYRND PVT LTD";
+    const emp = new Employee();
+
+    //console.log(emp.company); //MYRND PVT LTD
+    //console.log(emp.hasOwnProperty('company')); //false
+    //console.log(emp.hasOwnProperty('name')); //true
+
+    //DOUTES
+    // Employee.prototype
+    // Employee.prototype.constructor 
+    // Employee.prototype.__proto__;
+ 
+
+</script>

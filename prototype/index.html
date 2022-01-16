@@ -1,0 +1,21 @@
+<script>
+    function Employee() { //class
+        this.empno = 1;
+        this.getEmpno = function() {
+            return this.empno;
+        }
+    }
+
+    var employee = new Employee(); //object
+
+    console.log(employee);
+
+    console.log(employee.__proto__ === Employee.prototype);
+
+    console.dir(employee);
+
+
+    //var nme = employee.getName();
+    //var empno = employee.getEmpno();
+    //console.log(empno, nme);
+</script>

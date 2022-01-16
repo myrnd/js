@@ -1,0 +1,44 @@
+<script>
+    function A() {
+        this.a = 10;
+        this.getA = function() {
+            return this.a;
+        }
+    };
+    console.log(A === A.prototype.constructor); //true
+
+    function B() {
+        this.b = 20;
+        this.getB = function() {
+            return this.b;
+        }
+        A.call(this); //calls A constructor and creates it's properties and methods
+    };
+    B.prototype = Object.create(A.prototype);
+    B.prototype.constructor = B;
+    console.log(B === B.prototype.constructor); //true
+
+
+    function C() {
+        this.c = 30;
+        this.getC = function() {
+            return this.c;
+        }
+        B.call(this);//calls B constructor and creates it's properties and methods
+    };
+
+    C.prototype = Object.create(B.prototype);
+    C.prototype.constructor = C;
+    console.log(B === B.prototype.constructor); //true
+
+
+    let obj = new C();
+    console.log(obj.getC());
+    console.log(obj.getB());
+    console.log(obj.getA());
+
+    console.log(obj.__proto__ === C.prototype);
+    console.log(obj.__proto__.__proto__ === B.prototype);
+    console.log(obj.__proto__.__proto__.__proto__ === A.prototype);
+
+</script>
