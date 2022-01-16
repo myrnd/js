@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Event Propagation | Capturing | Bubbling</title>
+    </head>
+    <body  id="divid" style="background-color:pink">
+        <div>
+            <div onclick="divClickHandler(event)">
+                <div>
+                    <button>Click Me!</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            function divClickHandler(ev) {
+                console.log(ev);
+            }
+
+            document.getElementById('divid').addEventListener('click', function(ev) {
+                console.log('inside....');
+                console.log(ev)
+            }, true);
+        </script>
+    </body>
+</html>
