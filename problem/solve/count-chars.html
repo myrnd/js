@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Count-Chars</title>
+  <script>
+    /** Count occurence of each characters in a given string **/
+
+    function ClickHandler() {
+      var str = document.getElementById('string').value;
+      var aryStr = [...str];
+
+      function reducer(result, item) {
+        // if (result[item]) {
+        //    result[item]++;
+        // } else {
+        //    (result[item] = 1);
+        // }
+        result[item] ? result[item]++ : result[item] = 1;
+        return result;
+      }
+
+      var res = aryStr.reduce(reducer, {});
+      console.log(res);
+
+      document.getElementById('result').innerText = JSON.stringify(res);;
+    }
+  </script>
+</head>
+
+<body>
+  <h2>Couting occurence of each character in a given string using reduce() :: </h2>
+  Enter any string :
+  <input id="string" type="text">
+  <button onclick="ClickHandler(event);">Submit</button>
+
+  <p>Result : <span id="result"></span></p>
+
+</body>
+
+</html>

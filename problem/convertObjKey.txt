@@ -1,0 +1,1 @@
+/* Covert the key of nested object in simple array */
